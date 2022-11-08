@@ -1,0 +1,14 @@
+footer {
+    @include flex(row, center, center);
+    padding: 10px 0;
+    background-color: $color-grey;
+
+    span {
+        margin-left: 20px;
+        cursor: pointer;
+
+        &:hover {
+            color: $color-main;
+        }
+    }
+}

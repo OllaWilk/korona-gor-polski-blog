@@ -1,0 +1,66 @@
+.sidebar {
+
+    .about,
+    .all-posts,
+    .tags {
+        margin-bottom: 25px;
+
+    }
+
+    .section-title {
+        text-transform: uppercase;
+        text-align: center;
+        font-size: 13px;
+        font-weight: $font-semibold;
+        letter-spacing: 3px;
+        margin-bottom: 1em;
+
+
+
+    }
+
+    .all-posts {
+
+        .titles {
+            text-transform: uppercase;
+
+
+            li {
+                background-color: $color-grey;
+                cursor: pointer;
+                padding: 10px;
+                display: block;
+                margin-bottom: 5px;
+                text-align: center;
+                font-size: 12px;
+                transition: $transition;
+
+                a {
+                    color: $color-light;
+                }
+
+                  &:hover {
+                    background-color: $color-main;
+                    padding: 10px;
+                }
+            }
+
+
+        }
+    }
+
+    .tags{
+           .tags,
+           .authors {
+            a {
+                color: $color-black;
+
+                &:hover {
+                    color: $color-main;
+                }
+            }
+
+        }
+    }
+}
+

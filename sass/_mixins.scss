@@ -1,0 +1,75 @@
+@mixin flex($flex-direction, $align-items, $justify-content) {
+  display: flex;
+  flex-direction: $flex-direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+
+@mixin center() {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin btn($btn-bg, $btn-text, $btn-border) {
+  background: $btn-bg;
+  color: $btn-text;
+  border-color: $btn-border;
+  border-radius: $radius;
+  transition: $transition;
+  display: inline-block;
+  border-width: 1px;
+  border-style: solid;
+  padding: 0 2.6em;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+
+  &:hover {
+    background: lighten($btn-bg, 3%);
+  }
+
+  &.disabled, &[disabled] {
+    background: desaturate($btn-bg, 100%);
+    border-color: desaturate($btn-border, 100%);
+    cursor: not-allowed;
+  }
+}
+
+// Small devices
+
+@mixin sm {
+  @media (min-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
+// Medium devices
+@mixin md {
+  @media (min-width: #{$screen-md}) {
+    @content;
+  }
+}
+
+// Large devices
+@mixin l {
+  @media (min-width: #{$screen-l}) {
+    @content;
+  }
+}
+
+// Extra large devices
+@mixin xl {
+  @media (min-width: #{$screen-xl}) {
+    @content;
+  }
+}
+
+// Super extra large devices
+@mixin xxl {
+  @media (min-width: #{$screen-xxl}) {
+    @content;
+  }
+}

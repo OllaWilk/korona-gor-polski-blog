@@ -24,11 +24,10 @@
         .titles {
             text-transform: uppercase;
 
-
             li {
                 background-color: $color-grey;
                 cursor: pointer;
-                padding: 10px;
+
                 display: block;
                 margin-bottom: 5px;
                 text-align: center;
@@ -37,11 +36,12 @@
 
                 a {
                     color: $color-light;
+                    display: block;
+                     padding: 10px;
                 }
 
                   &:hover {
                     background-color: $color-main;
-                    padding: 10px;
                 }
             }
 

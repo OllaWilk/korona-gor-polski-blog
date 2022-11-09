@@ -113,6 +113,10 @@ nav ul li a.disabled, nav ul li a[disabled] {
   width: 30%;
 }
 
+.post {
+  display: none;
+}
+
 .post .post-date {
   text-align: center;
   font-weight: 400;
@@ -201,7 +205,6 @@ nav ul li a.disabled, nav ul li a[disabled] {
 .sidebar .all-posts .titles li {
   background-color: #838383;
   cursor: pointer;
-  padding: 10px;
   display: block;
   margin-bottom: 5px;
   text-align: center;
@@ -211,11 +214,12 @@ nav ul li a.disabled, nav ul li a[disabled] {
 
 .sidebar .all-posts .titles li a {
   color: #fff;
+  display: block;
+  padding: 10px;
 }
 
 .sidebar .all-posts .titles li:hover {
   background-color: #da1111;
-  padding: 10px;
 }
 
 .sidebar .tags .tags a,
@@ -317,6 +321,10 @@ a {
 a:hover {
   color: unset;
   text-decoration: none;
+}
+
+.active {
+  display: block;
 }
 
 /* Variables */

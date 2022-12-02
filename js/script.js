@@ -53,12 +53,36 @@
     }
     titleList.innerHTML = html;
     const links = [...document.querySelectorAll('.titles a')];
-    console.log(links);
 
     for (let link of links) {
       link.addEventListener('click', titleClickHandler);
     }
   }
+
+  function generateTags() {
+    /* find all articles */
+    const allArticles = [...document.querySelectorAll(opt.articleSelector)];
+    /* START LOOP: for every article: */
+    for (let article of allArticles) {
+      /* find tags wrapper */
+      const titleList = article.querySelectorAll(opt.articleTagsSelector);
+      console.log(titleList);
+      /* make html variable with empty string */
+      let html = '';
+    }
+
+    /* make html variable with empty string */
+    /* get tags from data-tags attribute */
+    /* split tags into array */
+    /* START LOOP: for each tag */
+    /* generate HTML of the link */
+    /* add generated code to html variable */
+    /* END LOOP: for each tag */
+    /* insert HTML of all the links into the tags wrapper */
+    /* END LOOP: for every article: */
+  }
+
+  generateTags();
 
   generateTitleLinks();
 }

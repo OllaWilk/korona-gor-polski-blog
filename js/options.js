@@ -5,4 +5,5 @@ const opt = {
   articleSelector: '.post',
   titleSelector: '.post-title',
   titleListSelector: '.titles',
+  articleTagsSelector: '.post-tags .list',
 };

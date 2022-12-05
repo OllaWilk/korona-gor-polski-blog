@@ -157,7 +157,7 @@ nav ul li a.disabled, nav ul li a[disabled] {
   margin: 20px 0;
 }
 
-.post .post-wrap .post-tags ul {
+.post .post-wrap .post-tags .list {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: row;
@@ -170,16 +170,20 @@ nav ul li a.disabled, nav ul li a[disabled] {
       flex-wrap: wrap;
 }
 
-.post .post-wrap .post-tags ul li {
+.post .post-wrap .post-tags .list .active {
+  color: #da1111;
+}
+
+.post .post-wrap .post-tags .list li {
   margin-right: 15px;
 }
 
-.post .post-wrap .post-tags ul li a {
+.post .post-wrap .post-tags .list li a {
   color: #3A3A3A;
   transition: all 0.5s;
 }
 
-.post .post-wrap .post-tags ul li a:hover {
+.post .post-wrap .post-tags .list li a:hover {
   color: #da1111;
 }
 

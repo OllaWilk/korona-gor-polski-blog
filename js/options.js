@@ -6,4 +6,6 @@ const opt = {
   titleSelector: '.post-title',
   titleListSelector: '.titles',
   articleTagsSelector: '.post-tags ul',
+  allPostsBtn: '.all-posts > h2',
+  articleAuthorSelector: '.post-author',
 };

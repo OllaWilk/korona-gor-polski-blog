@@ -136,5 +136,30 @@
     /* END LOOP: for each link */
   }
 
+  function generateAutors() {
+    /* find all articles */
+    const allArticles = document.querySelectorAll(opt.articleSelector);
+    /* START LOOP for every article */
+    for (let article of allArticles) {
+      /* find author wrapper <p class="post-author"></p>*/
+      const authorWrap = article.querySelector(opt.articleAuthorSelector);
+      /* make html variable with empty string */
+      let html = '';
+      /* get author from data-authors attribute */
+      const author = article.getAttribute('data-author');
+      /* generate HTML of the span */
+      const spanHTML = `<span>by ${author}</span>`;
+      /* add generated code to html variable */
+      html = html + spanHTML;
+      /* insert HTML of all the links into the author wrapper */
+      authorWrap.innerHTML = html;
+    }
+  }
+  generateAutors();
+  /*Get all posts */
+  document
+    .querySelector(opt.allPostsBtn)
+    .addEventListener('click', () => generateTitleLinks());
+
   addClickListenersToTags();
 }

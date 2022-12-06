@@ -31,8 +31,11 @@
     }
 
     .post-author {
-      color: $color-grey;
+      a {
+        color: $color-grey;
+      }
       margin-bottom: 20px;
+      cursor: pointer;
     }
 
     .post-tags {

@@ -234,13 +234,18 @@ nav ul li a.disabled, nav ul li a[disabled] {
   background-color: #da1111;
 }
 
-.sidebar .tags .tags a,
-.sidebar .tags .authors a {
+.sidebar .tags-wrap .tags a,
+.sidebar .tags-wrap .authors a {
   color: #000000;
 }
 
-.sidebar .tags .tags a:hover,
-.sidebar .tags .authors a:hover {
+.sidebar .tags-wrap .tags a:hover,
+.sidebar .tags-wrap .authors a:hover {
+  color: #da1111;
+}
+
+.sidebar .tags-wrap .tags .active,
+.sidebar .tags-wrap .authors .active {
   color: #da1111;
 }
 

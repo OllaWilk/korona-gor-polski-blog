@@ -45,7 +45,7 @@
     }
   }
 
-  .tags {
+  .tags-wrap {
     .tags,
     .authors {
       a {
@@ -54,6 +54,9 @@
         &:hover {
           color: $color-main;
         }
+      }
+      .active {
+        color: $color-main;
       }
     }
   }

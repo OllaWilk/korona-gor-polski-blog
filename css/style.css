@@ -149,8 +149,12 @@ nav ul li a.disabled, nav ul li a[disabled] {
 }
 
 .post .post-wrap .post-author {
-  color: #838383;
   margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.post .post-wrap .post-author a {
+  color: #838383;
 }
 
 .post .post-wrap .post-tags {

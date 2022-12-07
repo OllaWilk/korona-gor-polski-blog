@@ -249,6 +249,33 @@ nav ul li a.disabled, nav ul li a[disabled] {
   color: #da1111;
 }
 
+.tags {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+      align-items: center;
+  -ms-flex-pack: center;
+      justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.tags a {
+  margin: 1rem;
+}
+
+.tags .tag-size-1 {
+  font-size: 16px;
+}
+
+.tags .tag-size-3 {
+  font-size: calc(16px * 1.5);
+}
+
+.tags .tag-size-5 {
+  font-size: calc(16px * 3);
+}
+
 footer {
   display: -ms-flexbox;
   display: flex;

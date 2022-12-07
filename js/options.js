@@ -8,5 +8,7 @@ const opt = {
   articleTagsSelector: '.post-tags ul',
   allPostsBtn: '.all-posts > h2',
   articleAuthorSelector: '.post-author',
-  tagsListSelector: '.tags.list',
+  tagsListSelector: '.tags',
+  clounClassCount: 5,
+  cloudClassPrefix: 'tag-size-',
 };

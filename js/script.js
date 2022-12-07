@@ -64,6 +64,33 @@
 
   generateTitleLinks();
 
+  function calculateTagsParams(tags) {
+    const params = {
+      max: 0,
+      min: 999999,
+    };
+
+    for (let tag in tags) {
+      if (tags[tag] > params.max) {
+        params.max = tags[tag];
+      }
+
+      if (tags[tag] < params.min) {
+        params.min = tags[tag];
+      }
+    }
+    return params;
+  }
+
+  function calculateTagClass(count, params) {
+    const normalizedCount = count - params.min;
+    const normalizedMax = params.max - params.min;
+    const percentage = normalizedCount / normalizedMax;
+    const classNumber = Math.floor(percentage * (opt.clounClassCount - 1) + 1);
+
+    return classNumber;
+  }
+
   function generateTags() {
     /* [NEW] create a new variable allTags with an empty object */
     let allTags = {};
@@ -105,8 +132,7 @@
     /* [NEW] find list of tags in right column */
     const tagList = document.querySelector('.tags');
 
-    /* [NEW] add html from allTags to tagList */
-    // tagList.innerHTML = allTags.join(' ');
+    const tagsParams = calculateTagsParams(allTags);
 
     /* [NEW] create variable for all links HTML code */
     let allTagsHTML = '';
@@ -114,11 +140,17 @@
     /* [NEW] START LOOP: for each tag in allTags: */
     for (let tag in allTags) {
       /* [NEW] generate code of a link and add it to allTagsHTML */
-      allTagsHTML += `<a href="#tag-${tag}">${tag}(${allTags[tag]}) </a>`;
-      // allTagsHTML += tag + ' (' + allTags[tag] + ') ';
-      /* [NEW] END LOOP: for each tag in allTags: */
+      const tagLinkHTML = `<li>
+        <a class="${opt.cloudClassPrefix}${calculateTagClass(
+        allTags[tag],
+        tagsParams
+      )}"
+          href="#tag-${tag}">
+          ${tag}(${allTags[tag]})
+          </a>
+      </li>`;
+      allTagsHTML += tagLinkHTML;
     }
-
     /*[NEW] add HTML from allTagsHTML to tagList */
     tagList.innerHTML = allTagsHTML;
   }
@@ -131,7 +163,6 @@
     const clickedElement = this;
     /* make a new constant "href" and read the attribute "href" of the clicked element */
     const href = clickedElement.getAttribute('href');
-    console.log(href);
     /* make a new constant "tag" and extract tag from the "href" constant */
     const tag = href.replace('#tag-', '');
 
@@ -233,9 +264,13 @@
     generateTitleLinks(`[data-author="${author}"]`);
   }
   /*Get all posts */
-  document
-    .querySelector(opt.allPostsBtn)
-    .addEventListener('click', () => generateTitleLinks());
+  document.querySelector(opt.allPostsBtn).addEventListener('click', () => {
+    generateTitleLinks();
+
+    document
+      .querySelectorAll(`a.active`)
+      .forEach((e) => e.classList.remove('active'));
+  });
 
   addClickListenersToTags();
   addClickListenersToAuthors();

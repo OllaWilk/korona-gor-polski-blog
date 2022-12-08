@@ -59,27 +59,20 @@
         color: $color-main;
       }
     }
-  }
-}
 
-.tags {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+    .tags {
+      span {
+        margin-left: 8px;
+        color: $color-grey;
+      }
+    }
 
-  a {
-    margin: 1rem;
-  }
-
-  .tag-size-1 {
-    font-size: 16px;
-  }
-
-  .tag-size-3 {
-    font-size: calc(16px * 1.5);
-  }
-  .tag-size-5 {
-    font-size: calc(16px * 3);
+    .authors {
+      display: flex;
+      flex-wrap: wrap;
+      a {
+        padding-right: 1rem;
+      }
+    }
   }
 }

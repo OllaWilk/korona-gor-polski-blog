@@ -11,4 +11,5 @@ const opt = {
   tagsListSelector: '.tags',
   clounClassCount: 5,
   cloudClassPrefix: 'tag-size-',
+  authorListSelector: '.authors',
 };

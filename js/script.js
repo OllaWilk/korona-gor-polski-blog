@@ -1,4 +1,21 @@
 'use strict';
+const templates = {
+  articleLink: Handlebars.compile(
+    document.querySelector('#template-article-link').innerHTML
+  ),
+  tagCloudLink: Handlebars.compile(
+    document.querySelector('#template-tag-cloud-link').innerHTML
+  ),
+  articleTags: Handlebars.compile(
+    document.querySelector('#template-article-tags-link').innerHTML
+  ),
+  authorArticleLink: Handlebars.compile(
+    document.querySelector('#template-author-article-link').innerHTML
+  ),
+  authorLinkList: Handlebars.compile(
+    document.querySelector('#template-authorLinkList').innerHTML
+  ),
+};
 
 {
   const titleClickHandler = function (e) {
@@ -52,8 +69,8 @@
       ).innerHTML;
 
       /* create HTML of the link */
-      const linkHTML = `<li><a href="#${articleId}"><span>${articleTitle}</span></a></li>`;
-
+      const linkHTMLData = { id: articleId, title: articleTitle };
+      const linkHTML = templates.articleLink(linkHTMLData);
       /* insert link into titleList */
       html = html + linkHTML;
       // titleList.innerHTML = titleList.innerHTML + linkHTML;
@@ -89,8 +106,8 @@
       const articleTagsArray = articleTags.split(' ');
       /* START LOOP: for each tag */
       for (let tag of articleTagsArray) {
-        /* generate HTML of the link */
-        const linkHTML = `<li><a href="#tag-${tag}">${tag}</a></li>`;
+        const linkHTMLData = { tag: tag };
+        const linkHTML = templates.articleTags(linkHTMLData);
         /* add generated code to html variable */
         html = html + linkHTML;
         /* [NEW] check if this link is NOT already in allTags */
@@ -110,20 +127,19 @@
     const tagList = document.querySelector(select.listOf.tags);
 
     /* [NEW] create variable for all links HTML code */
-    let allTagsHTML = '';
+    const allTagsData = { tags: [] };
 
     /* [NEW] START LOOP: for each tag in allTags: */
     for (let tag in allTags) {
       /* [NEW] generate code of a link and add it to allTagsHTML */
-      const tagLinkHTML = `<li>
-        <a href="#tag-${tag}">
-          ${tag}<span>(${allTags[tag]})</span>
-          </a>
-      </li>`;
-      allTagsHTML += tagLinkHTML;
+
+      allTagsData.tags.push({
+        tag: tag,
+        count: allTags[tag],
+      });
     }
     /*[NEW] add HTML from allTagsHTML to tagList */
-    tagList.innerHTML = allTagsHTML;
+    tagList.innerHTML = templates.tagCloudLink(allTagsData);
   }
   generateTags();
 
@@ -169,7 +185,7 @@
   }
 
   function generateAutors() {
-    let allAuthors = [];
+    let allAuthors = {};
     /* find all articles */
     const allArticles = document.querySelectorAll(select.all.articles);
     /* START LOOP for every article */
@@ -181,24 +197,37 @@
       /* get author from data-authors attribute */
       const author = article.getAttribute('data-author');
       /* generate HTML of the link */
-      const linkAuthorHTML = `<a href="#author-${author}">by ${author}</a>`;
 
-      /* [NEW] check if this link is NOT already in allAuthors */
-      if (allAuthors.indexOf(linkAuthorHTML) == -1) {
-        /* [NEW] add generated code to allAuthors array */
-        allAuthors.push(linkAuthorHTML);
-      }
+      const authorHTMLData = {
+        author: author,
+      };
+      const htmlAuthor = templates.authorArticleLink(authorHTMLData);
+
       /* add generated code to html variable */
-      html = html + linkAuthorHTML;
+      html = html + htmlAuthor;
+
+      if (!allAuthors[author]) {
+        allAuthors[author] = 1;
+      } else {
+        allAuthors[author]++;
+      }
       /* insert HTML of all the links into the author wrapper */
       authorWrap.innerHTML = html;
     }
 
-    /* [NEW] find list of tags in right column */
-    const authorList = document.querySelector(select.listOf.authors);
+    /* [NEW] find list of tags in right column HANDLEBARS*/
+    const allAuthorsData = { authors: [] };
 
-    /* [NEW] add html from allTags to tagList */
-    authorList.innerHTML = allAuthors.join(' ');
+    const authorList = document.querySelector(select.listOf.authors);
+    for (let authorName in allAuthors) {
+      allAuthorsData.authors.push({
+        author: authorName,
+        count: allAuthors[authorName],
+        img: opts.georgiaTuxedo,
+      });
+    }
+
+    authorList.innerHTML = templates.authorLinkList(allAuthorsData);
   }
   generateAutors();
 
@@ -221,7 +250,6 @@
 
     /* START LOOP: for each active tag link */
     for (let activeAuthorLink of allActiveAuthorLinks) {
-      console.log(activeAuthorLink);
       /* remove class active */
       activeAuthorLink.classList.remove('active');
       /* END LOOP: for each active tag link */

@@ -465,16 +465,6 @@
               <h2 class="section-title">Authors</h2>
               <ul class="authors">
                 <!-- LIST OF AUTHORS -->
-                <!-- <li>
-                  <a href="#">
-                    <span class="author-name">Kuba Wilk</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <span class="author-name">Alex Wilk</span>
-                  </a>
-                </li> -->
               </ul>
             </div>
           </aside>
@@ -482,6 +472,38 @@
       </div>
       <footer><span>Alex Wilk @ Check out my github </span></footer>
     </div>
+    <!-- HANDLEBARS -->
+    <!-- 1. Article link aside-->
+    <script id="template-article-link" type="text/x-handlebars-template">
+      <li><a href='#{{id}}'><span>{{title}}</span></a></li>
+    </script>
+    <!-- 2. Tags link in article -->
+    <script id="template-article-tags-link" type="text/x-handlebars-template">
+      <li><a href='#tag-{{tag}}'>{{tag}}</a></li>
+    </script>
+    <!-- 3. Author in article -->
+    <script id="template-author-article-link" type="text/x-handlebars-template">
+      <li><a href='#author-{{author}}'>by {{author}}</a></li>
+    </script>
+    <!-- 4. Tags in aside -->
+    <script id="template-tag-cloud-link" type="text/x-handlebars-template">
+      {{#each tags}}
+        <li>
+          <a href='#tag-{{tag}}'>{{tag}}<span>({{count}})</span></a>
+        </li>
+      {{/each}}
+    </script>
+    <!-- 5. Authors in aside -->
+    <script id="template-authorLinkList" type="text/x-handlebars-template">
+      {{#each authors}}
+        <a href='#author-{{author}}'>
+          {{author}}
+        </a>
+
+      {{/each}}
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
     <script src="js/options.js"></script>
     <script src="js/script.js"></script>
   </body>

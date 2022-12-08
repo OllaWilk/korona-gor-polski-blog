@@ -1,15 +1,29 @@
-const opt = {
-  links: '.titles a',
-  activeLinks: '.titles a.active',
-  activeArticles: '.posts article.active',
-  articleSelector: '.post',
-  titleSelector: '.post-title',
-  titleListSelector: '.titles',
-  articleTagsSelector: '.post-tags ul',
-  allPostsBtn: '.all-posts > h2',
-  articleAuthorSelector: '.post-author',
-  tagsListSelector: '.tags',
-  clounClassCount: 5,
-  cloudClassPrefix: 'tag-size-',
-  authorListSelector: '.authors',
+const opts = {
+  tagSizes: {
+    classPrefix: 'tag-size-',
+    count: 5,
+  },
+};
+
+const select = {
+  all: {
+    articles: '.post',
+    activeArticles: '.posts article.active',
+    activeLinks: '.titles a.active',
+    allPostsBtn: '.all-posts > h2',
+    linksTo: {
+      tags: 'a.active[href^="#tag-"]',
+      authors: 'a.active[href^="#author-"]',
+    },
+  },
+  article: {
+    tags: '.post-tags ul',
+    author: '.post-author',
+    title: '.post-title',
+  },
+  listOf: {
+    titles: '.titles',
+    tags: '.tags',
+    authors: '.authors',
+  },
 };

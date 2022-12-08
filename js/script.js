@@ -5,7 +5,7 @@
     e.preventDefault();
 
     /* remove class 'active' from all article links  */
-    const activeLinks = document.querySelectorAll(opt.articleSelector);
+    const activeLinks = document.querySelectorAll(select.all.articles);
 
     for (let activeLink of activeLinks) {
       activeLink.classList.remove('active');
@@ -15,7 +15,9 @@
     this.classList.add('active');
 
     /* remove class 'active' from all articles */
-    const activeArticles = document.querySelectorAll(opt.activeArticles);
+    const activeArticles = document.querySelectorAll(
+      select.all.activeArticles.activeArticles
+    );
 
     for (let activeArticle of activeArticles) {
       activeArticle.classList.remove('active');
@@ -32,11 +34,11 @@
 
   function generateTitleLinks(customSelector = '') {
     /* remove contents of titleList */
-    const titleList = document.querySelector(opt.titleListSelector);
+    const titleList = document.querySelector(select.listOf.titles);
     titleList.innerHTML = '';
     /* for each article */
     const articles = document.querySelectorAll(
-      opt.articleSelector + customSelector
+      select.all.articles + customSelector
     );
 
     let html = '';
@@ -45,7 +47,9 @@
       const articleId = article.getAttribute('id');
 
       /* find the title element and get the title from the title element*/
-      const articleTitle = article.querySelector(opt.titleSelector).innerHTML;
+      const articleTitle = article.querySelector(
+        select.article.title
+      ).innerHTML;
 
       /* create HTML of the link */
       const linkHTML = `<li><a href="#${articleId}"><span>${articleTitle}</span></a></li>`;
@@ -68,12 +72,12 @@
     /* [NEW] create a new variable allTags with an empty object */
     let allTags = {};
     /* find all articles */
-    const allArticles = document.querySelectorAll(opt.articleSelector);
+    const allArticles = document.querySelectorAll(select.all.articles);
 
     /* START LOOP: for every article: */
     for (let article of allArticles) {
       /* find tags wrapper */
-      const tagList = article.querySelector(opt.articleTagsSelector);
+      const tagList = article.querySelector(select.article.tags);
       tagList.innerHTML = '';
 
       /* make html variable with empty string */
@@ -103,7 +107,7 @@
       /* END LOOP: for every article: */
     }
     /* [NEW] find list of tags in right column */
-    const tagList = document.querySelector(opt.tagsListSelector);
+    const tagList = document.querySelector(select.listOf.tags);
 
     /* [NEW] create variable for all links HTML code */
     let allTagsHTML = '';
@@ -134,7 +138,7 @@
     const tag = href.replace('#tag-', '');
 
     /* find all tag links with class active */
-    const activeTagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
+    const activeTagLinks = document.querySelectorAll(select.all.linksTo.tags);
     /* START LOOP: for each active tag link */
     for (let activeTagLink of activeTagLinks) {
       /* remove class active */
@@ -167,11 +171,11 @@
   function generateAutors() {
     let allAuthors = [];
     /* find all articles */
-    const allArticles = document.querySelectorAll(opt.articleSelector);
+    const allArticles = document.querySelectorAll(select.all.articles);
     /* START LOOP for every article */
     for (let article of allArticles) {
       /* find author wrapper */
-      const authorWrap = article.querySelector(opt.articleAuthorSelector);
+      const authorWrap = article.querySelector(select.article.author);
       /* make html variable with empty string */
       let html = '';
       /* get author from data-authors attribute */
@@ -191,7 +195,7 @@
     }
 
     /* [NEW] find list of tags in right column */
-    const authorList = document.querySelector(opt.authorListSelector);
+    const authorList = document.querySelector(select.listOf.authors);
 
     /* [NEW] add html from allTags to tagList */
     authorList.innerHTML = allAuthors.join(' ');
@@ -211,7 +215,7 @@
     const author = href.replace('#author-', '');
     /* find all author links with class active */
     const allActiveAuthorLinks = document.querySelectorAll(
-      'a.active[href^="#author-"]'
+      select.all.linksTo.authors
     );
     console.log(allActiveAuthorLinks);
 
@@ -238,12 +242,10 @@
 
   function addClickListenersToAuthors() {
     /* find link to author */
-    const authorsLink = document.querySelectorAll(
-      `${opt.articleAuthorSelector} a`
-    );
+    const authorsLink = document.querySelectorAll(`${select.article.author} a`);
 
     const authorsAside = document.querySelectorAll(
-      `${opt.authorListSelector} a`
+      `${select.listOf.authors} a`
     );
 
     /* START LOOP: for each link */
@@ -258,13 +260,15 @@
     );
   }
   /*Get all posts */
-  document.querySelector(opt.allPostsBtn).addEventListener('click', () => {
-    generateTitleLinks();
+  document
+    .querySelector(select.all.allPostsBtn)
+    .addEventListener('click', () => {
+      generateTitleLinks();
 
-    document
-      .querySelectorAll(`a.active`)
-      .forEach((e) => e.classList.remove('active'));
-  });
+      document
+        .querySelectorAll(`a.active`)
+        .forEach((e) => e.classList.remove('active'));
+    });
 
   addClickListenersToTags();
   addClickListenersToAuthors();

@@ -1,0 +1,49 @@
+@import "./mixins";
+@import "./variables";
+
+nav {
+    position: fixed;
+    width: 100%;
+    padding: 1em 0em 0.3em 0em;
+    border-bottom: 1px solid $color-underline;
+    background-color: $color-light;
+
+    ul {
+        @include flex( row, center, center );
+        margin-bottom: 10px;
+        flex-wrap: wrap;
+
+        li {
+                a {
+                @include btn($color-light, $color-dark, transparent);
+                z-index: 10;
+
+            }
+        }
+    }
+}
+
+.blog header {
+    padding: 150px 0 70px;
+    @include flex(column, center, center);
+
+}
+
+.blog-wrapper {
+    @include flex(row, stretch, space-between);
+    flex-wrap: no-wrap;
+    min-height: 67vh;
+
+    .posts, .sidebar {
+        margin: 4em 0em;
+
+    }
+
+    .posts {
+        width: 63%;
+    }
+
+    .sidebar {
+       width: 30%;
+    }
+}

@@ -1,0 +1,78 @@
+.sidebar {
+  .about,
+  .all-posts,
+  .tags {
+    margin-bottom: 25px;
+  }
+
+  .section-title {
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 13px;
+    font-weight: $font-semibold;
+    letter-spacing: 3px;
+    margin-bottom: 1em;
+  }
+
+  .all-posts {
+    h2 {
+      cursor: pointer;
+    }
+
+    .titles {
+      text-transform: uppercase;
+
+      li {
+        background-color: $color-grey;
+        cursor: pointer;
+
+        display: block;
+        margin-bottom: 5px;
+        text-align: center;
+        font-size: 12px;
+        transition: $transition;
+
+        a {
+          color: $color-light;
+          display: block;
+          padding: 10px;
+        }
+
+        &:hover {
+          background-color: $color-main;
+        }
+      }
+    }
+  }
+
+  .tags-wrap {
+    .tags,
+    .authors {
+      a {
+        color: $color-black;
+
+        &:hover {
+          color: $color-main;
+        }
+      }
+      .active {
+        color: $color-main;
+      }
+    }
+
+    .tags {
+      span {
+        margin-left: 8px;
+        color: $color-grey;
+      }
+    }
+
+    .authors {
+      display: flex;
+      flex-wrap: wrap;
+      a {
+        padding-right: 1rem;
+      }
+    }
+  }
+}

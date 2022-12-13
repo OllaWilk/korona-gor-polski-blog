@@ -14,7 +14,9 @@ nav {
     flex-wrap: wrap;
 
     li {
-      a {
+      cursor: pointer;
+      a,
+      p {
         @include btn($color-light, $color-dark, transparent);
         z-index: 10;
       }
@@ -23,7 +25,7 @@ nav {
 }
 
 .blog header {
-  padding: 150px 0 70px;
+  padding: 150px 0 70px 0;
   @include flex(column, center, center);
   @include md-max {
     padding-bottom: 20px;

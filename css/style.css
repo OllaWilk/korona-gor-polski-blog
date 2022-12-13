@@ -2,6 +2,79 @@
 /* Font weight */
 /* Response */
 /* Helpers */
+.about,
+.contact {
+  display: none;
+}
+
+.about-wrap,
+.contact-wrap {
+  background-color: #fff;
+  position: absolute;
+  left: 0;
+  text-align: center;
+}
+
+.about-wrap h2,
+.contact-wrap h2 {
+  margin-bottom: 1rem;
+}
+
+.about-wrap {
+  padding: 0 10%;
+  margin: 150px 0 70px 0;
+  top: 0%;
+}
+
+@media (max-width: 768px) {
+  .about-wrap {
+    margin: 90px 0;
+    padding: 0 100px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-wrap {
+    background-color: #fff;
+    padding: 20px;
+    height: 90vh;
+  }
+}
+
+.contact-wrap {
+  top: 8%;
+  z-index: 999;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .contact-wrap {
+    top: 30%;
+  }
+}
+
+@media (max-width: 576px) {
+  .contact-wrap {
+    top: 10%;
+  }
+}
+
+.contact-wrap .description-wrap {
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.contact-wrap .description-wrap svg {
+  height: 20px;
+  margin-right: 1rem;
+}
+
+/* Variables */
+/* Font weight */
+/* Response */
+/* Helpers */
 header {
   text-align: center;
 }
@@ -48,7 +121,12 @@ nav ul {
       flex-wrap: wrap;
 }
 
-nav ul li a {
+nav ul li {
+  cursor: pointer;
+}
+
+nav ul li a,
+nav ul li p {
   background: #fff;
   color: #3A3A3A;
   border-color: transparent;
@@ -65,18 +143,21 @@ nav ul li a {
   z-index: 10;
 }
 
-nav ul li a:hover {
+nav ul li a:hover,
+nav ul li p:hover {
   background: white;
 }
 
-nav ul li a.disabled, nav ul li a[disabled] {
+nav ul li a.disabled, nav ul li a[disabled],
+nav ul li p.disabled,
+nav ul li p[disabled] {
   background: white;
   border-color: rgba(0, 0, 0, 0);
   cursor: not-allowed;
 }
 
 .blog header {
-  padding: 150px 0 70px;
+  padding: 150px 0 70px 0;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-direction: column;
@@ -175,7 +256,7 @@ nav ul li a.disabled, nav ul li a[disabled] {
 
 .post .post-wrap .post-img {
   width: 100%;
-  height: 100%;
+  height: 450px;
   -o-object-fit: cover;
      object-fit: cover;
   padding-bottom: 10px;
@@ -224,7 +305,7 @@ nav ul li a.disabled, nav ul li a[disabled] {
   color: #da1111;
 }
 
-.sidebar .about,
+.sidebar .about-us,
 .sidebar .all-posts,
 .sidebar .tags {
   margin-bottom: 25px;

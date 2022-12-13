@@ -12,6 +12,12 @@
     font-weight: $font-semibold;
     letter-spacing: 3px;
     margin-bottom: 1em;
+
+    @include md-max {
+      color: $color-light;
+      background-color: $color-grey;
+      padding: 10px;
+    }
   }
 
   .all-posts {
@@ -26,7 +32,6 @@
         background-color: $color-grey;
         cursor: pointer;
 
-        display: block;
         margin-bottom: 5px;
         text-align: center;
         font-size: 12px;

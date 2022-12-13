@@ -31,7 +31,8 @@
     background: lighten($btn-bg, 3%);
   }
 
-  &.disabled, &[disabled] {
+  &.disabled,
+  &[disabled] {
     background: desaturate($btn-bg, 100%);
     border-color: desaturate($btn-border, 100%);
     cursor: not-allowed;
@@ -46,9 +47,21 @@
   }
 }
 
+@mixin sm-max {
+  @media (max-width: #{$screen-sm}) {
+    @content;
+  }
+}
+
 // Medium devices
 @mixin md {
   @media (min-width: #{$screen-md}) {
+    @content;
+  }
+}
+// Medium devices
+@mixin md-max {
+  @media (max-width: #{$screen-md}) {
     @content;
   }
 }

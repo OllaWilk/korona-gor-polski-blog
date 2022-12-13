@@ -87,6 +87,12 @@ nav ul li a.disabled, nav ul li a[disabled] {
       justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .blog header {
+    padding-bottom: 20px;
+  }
+}
+
 .blog-wrapper {
   display: -ms-flexbox;
   display: flex;
@@ -101,16 +107,43 @@ nav ul li a.disabled, nav ul li a[disabled] {
   min-height: 67vh;
 }
 
-.blog-wrapper .posts, .blog-wrapper .sidebar {
+@media (max-width: 768px) {
+  .blog-wrapper {
+    -ms-flex-direction: column-reverse;
+        flex-direction: column-reverse;
+  }
+}
+
+.blog-wrapper .posts,
+.blog-wrapper .sidebar {
   margin: 4em 0em;
+}
+
+@media (max-width: 768px) {
+  .blog-wrapper .posts,
+  .blog-wrapper .sidebar {
+    margin: 4rem 0 0rem 0rem;
+  }
 }
 
 .blog-wrapper .posts {
   width: 63%;
 }
 
+@media (max-width: 768px) {
+  .blog-wrapper .posts {
+    width: 100%;
+  }
+}
+
 .blog-wrapper .sidebar {
   width: 30%;
+}
+
+@media (max-width: 768px) {
+  .blog-wrapper .sidebar {
+    width: 100%;
+  }
 }
 
 .post {
@@ -206,6 +239,14 @@ nav ul li a.disabled, nav ul li a[disabled] {
   margin-bottom: 1em;
 }
 
+@media (max-width: 768px) {
+  .sidebar .section-title {
+    color: #fff;
+    background-color: #838383;
+    padding: 10px;
+  }
+}
+
 .sidebar .all-posts h2 {
   cursor: pointer;
 }
@@ -217,7 +258,6 @@ nav ul li a.disabled, nav ul li a[disabled] {
 .sidebar .all-posts .titles li {
   background-color: #838383;
   cursor: pointer;
-  display: block;
   margin-bottom: 5px;
   text-align: center;
   font-size: 12px;

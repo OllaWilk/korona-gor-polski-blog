@@ -260,9 +260,12 @@
     );
   }
   /*Get all posts */
+
   document
     .querySelector(select.all.allPostsBtn)
-    .addEventListener('click', () => {
+    .addEventListener('click', (e) => {
+      e.preventDefault();
+
       generateTitleLinks();
 
       document

@@ -19,8 +19,9 @@ which contains a tag cloud and a list of authors. Tags and authors are dynamical
 [https://ollawilk.github.io/korona-gor-polski-blog/](https://ollawilk.github.io/korona-gor-polski-blog/)
 
 ## Screenshots
-![Screenshot](img/skreenshotRockPaper.png)
-*Images used in project are from rawpixel.com 
+![Screenshot](images/ScreenShot2.png)
+
+![Screenshot](images/screenShot1.png)
 
 ## 🚀 Technologies
 ![HTML5]( https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)

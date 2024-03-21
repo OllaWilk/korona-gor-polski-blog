@@ -5,13 +5,13 @@ Page consists of:
 
 ##### a header,
 
-##### a left column,
+##### a right column with title,
 where the titles of articles will be located. A list of article titles is dynamically generated based on the articles present in the HTML code. This list allows users to switch between articles.
 
 ##### a central column,
 which displays one article. Clicking on an article title displays the content of that article in the main view area.
 
-##### a right column, 
+##### a right column with authors and tags, 
 which contains a tag cloud and a list of authors. Tags and authors are dynamically generated based on the articles' metadata. Users can filter articles by clicking on a tag or an author name.
 
 
